@@ -52,10 +52,10 @@ public class MenuClick extends MenuCommands {
 	    	 {
 	    		 if(button==0){
 	    			 System.out.println("click");
-	    			 Map.mapControl=0;
-	    			 Map.mapinit();
+	    			 Map.gameManager.mapControl=0;
+	    			 Map.gameManager.mapInit();
 	    			 theme.stop();
-	    			 Map.IsThisAI=true;
+	    			 Map.gameManager.IsThisAI=true;
 	    			 sbg.enterState(TPP.map);
 	    		 }
 	    	 }
@@ -63,10 +63,10 @@ public class MenuClick extends MenuCommands {
 	    	 if((x>((width/5)*1) && x<((width/5)*2)))
 	    	 {
 	    		 if(button==0){
-	    			 Map.mapControl=1;
-	    			 Map.mapinit();
+	    			 Map.gameManager.mapControl=1;
+	    			 Map.gameManager.mapInit();
 	    			 theme.stop();
-	    			 Map.IsThisAI=true;
+	    			 Map.gameManager.IsThisAI=true;
 	    			 sbg.enterState(TPP.map);
 	    		 }
 	    	 }
@@ -74,10 +74,10 @@ public class MenuClick extends MenuCommands {
 	    	 if((x>((width/5)*2) && x<((width/5)*3)))
 	    	 {
 	    		 if(button==0){ 
-	    			 Map.mapControl=2;
-	    			 Map.mapinit();
+	    			 Map.gameManager.mapControl=2;
+	    			 Map.gameManager.mapInit();
 	    			 theme.stop();
-	    			 Map.IsThisAI=true;
+	    			 Map.gameManager.IsThisAI=true;
 	    			 sbg.enterState(TPP.map);
 	    		 }
 	    	 }
@@ -85,10 +85,10 @@ public class MenuClick extends MenuCommands {
 	    	 if((x>((width/5)*3) && x<((width/5)*4)))
 	    	 {
 	    		 if(button==0){
-	    			 Map.mapControl=3;
-	    			 Map.mapinit();
+	    			 Map.gameManager.mapControl=3;
+	    			 Map.gameManager.mapInit();
 	    			 theme.stop();
-	    			 Map.IsThisAI=true;
+	    			 Map.gameManager.IsThisAI=true;
 	    			 sbg.enterState(TPP.map);
 	    		 }
 	    	 }
@@ -96,10 +96,10 @@ public class MenuClick extends MenuCommands {
 	    	 if((x>((width/5)*4)))
 	    	 {
 	    		 if(button==0){
-	    			 Map.mapControl=4;
-	    			 Map.mapinit();
+	    			 Map.gameManager.mapControl=4;
+	    			 Map.gameManager.mapInit();
 	    			 theme.stop();
-	    			 Map.IsThisAI=true;
+	    			 Map.gameManager.IsThisAI=true;
 	    			 sbg.enterState(TPP.map);
 	    		 }
 	    	 }
@@ -111,49 +111,49 @@ public class MenuClick extends MenuCommands {
 	    	 if((x<((width/5)*1)))
 	    	 {
 	    		 if(button==0){
-	    			 Map.mapControl=0;
-	    			 Map.mapinit();
+	    			 Map.gameManager.mapControl=0;
+	    			 Map.gameManager.mapInit();
 	    			 theme.stop();
-	    			 Map.IsThisAI=false;
+	    			 Map.gameManager.IsThisAI=false;
 	    			 sbg.enterState(TPP.map);
 	    		 }
 	    	 }
 	    	 if((x>((width/5)*1) && x<((width/5)*2)))
 	    	 {
 	    		 if(button==0){
-	    			 Map.mapControl=1;
-	    			 Map.mapinit();
+	    			 Map.gameManager.mapControl=1;
+	    			 Map.gameManager.mapInit();
 	    			 theme.stop();
-	    			 Map.IsThisAI=false;
+	    			 Map.gameManager.IsThisAI=false;
 	    			 sbg.enterState(TPP.map);
 	    		 }
 	    	 }
 	    	 if((x>((width/5)*2) && x<((width/5)*3)))
 	    	 {
 	    		 if(button==0){
-	    			 Map.mapControl=2;
-	    			 Map.mapinit();
+	    			 Map.gameManager.mapControl=2;
+	    			 Map.gameManager.mapInit();
 	    			 theme.stop();
-	    			 Map.IsThisAI=false;
+	    			 Map.gameManager.IsThisAI=false;
 	    			 sbg.enterState(TPP.map);
 	    		 }
 	    	 }
 	    	 if((x>((width/5)*3) && x<((width/5)*4)))
 	    	 {
 	    		 if(button==0){
-	    			 Map.mapControl=3;
-	    			 Map.mapinit();
+	    			 Map.gameManager.mapControl=3;
+	    			 Map.gameManager.mapInit();
 	    			 theme.stop();
-	    			 Map.IsThisAI=false;
+	    			 Map.gameManager.IsThisAI=false;
 	    			 sbg.enterState(TPP.map);
 	    		 }
 	    	 }
 	    	 if((x>((width/5)*4))){
 	    		 if(button==0){
-	    			 Map.mapControl=4;
-	    			 Map.mapinit();
+	    			 Map.gameManager.mapControl=4;
+	    			 Map.gameManager.mapInit();
 	    			 theme.stop();
-	    			 Map.IsThisAI=false;
+	    			 Map.gameManager.IsThisAI=false;
 	    			 sbg.enterState(TPP.map);
 	    		 }
 	    	 }
