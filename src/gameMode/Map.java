@@ -207,8 +207,8 @@ public class Map extends BasicGameState {
 		if(input.isKeyDown(Input.KEY_T)){
 			shootCheck=true;
 			bool1=true; 
-			fire1X=play1X+10;
-			fire1Y=play1Y;
+			fire1X=play1X+Player1Sprite.getWidth()/2;
+			fire1Y=play1Y+Player2Sprite.getHeight()/8;
 			projCircle1= new Circle(fire1X, fire1Y, 40);
 			proj1 = new Velocity(fire1X, fire1Y, 20, -2);
 		}
@@ -237,8 +237,8 @@ public class Map extends BasicGameState {
 			aiPlayer.LocationChecker(play1Y,play2Y);
 			if(aiPlayer.shootTime){
 				bool2=true;
-				fire2X=play2X+10;
-				fire2Y=play2Y;
+				fire2X=play2X+Player2Sprite.getWidth()/2;
+				fire2Y=play2Y+Player2Sprite.getHeight()/8;
 				projCircle2= new Circle(fire2X, fire2Y, 40);
 				proj2 = new Velocity(fire2X, fire2Y, -20, -2);
 				shootCheck2=true;
@@ -264,8 +264,8 @@ public class Map extends BasicGameState {
 			if(input.isKeyDown(Input.KEY_NUMPAD0)){
 				shootCheck2=true;
 				bool2=true;
-				fire2X=play2X+10;
-				fire2Y=play2Y;
+				fire2X=play2X+Player2Sprite.getWidth()/2;
+				fire2Y=play2Y+Player2Sprite.getHeight()/8;
 				projCircle2= new Circle(fire2X, fire2Y, 40);
 				proj2 = new Velocity(fire2X, fire2Y, -20, -2);
 			}
@@ -288,7 +288,7 @@ public class Map extends BasicGameState {
 		
 		//player 1 collision detector
 			if(IsThisAI){
-				if(projCircle1.contains(play2X+10, play2Y+10) && CanBeHit2==true){
+				if(projCircle1.contains(play2X+Player2Sprite.getWidth()/2, play2Y+Player2Sprite.getHeight()/2) && CanBeHit2==true){
 					playerhit1++;
 					aiPlayer.VelY=-40;
 					CanBeHit2=false;
@@ -296,14 +296,14 @@ public class Map extends BasicGameState {
 					hitx1=fire1X;
 					hity1=fire1Y;
 				}
-				if(!(projCircle1.contains(play2X+10, play2Y+10) && CanBeHit2==false)){
+				if(!(projCircle1.contains(play2X+Player2Sprite.getWidth()/2, play2Y+Player2Sprite.getHeight()/2) && CanBeHit2==false)){
 					hitx1=2000;
 					hity1=2000;
 					CanBeHit2=true;
 				}
 			}
 			else{
-				if(projCircle1.contains(play2X+10, play2Y+10) && CanBeHit2==true){
+				if(projCircle1.contains(play2X+Player2Sprite.getWidth()/2, play2Y+Player2Sprite.getHeight()/2) && CanBeHit2==true){
 					playerhit1++;
 					player2.VelY=-40;
 					CanBeHit2=false;
@@ -312,7 +312,7 @@ public class Map extends BasicGameState {
 					hity1=fire1Y;
 				}
 				
-				if(!(projCircle1.contains(play2X+10, play2Y+10) && CanBeHit2==false)){
+				if(!(projCircle1.contains(play2X+Player2Sprite.getWidth()/2, play2Y+Player2Sprite.getHeight()/2) && CanBeHit2==false)){
 					hitx1=2000;
 					hity1=2000;
 					CanBeHit2=true;
@@ -320,7 +320,7 @@ public class Map extends BasicGameState {
 			}
 				
 				//player 2 collision detector
-				if(projCircle2.contains(play1X+10, play1Y+10) && CanBeHit1==true){
+				if(projCircle2.contains(play1X+Player1Sprite.getWidth()/2, play1Y+Player1Sprite.getHeight()/2) && CanBeHit1==true){
 					playerhit2++;
 					player1.VelY=-40;
 					CanBeHit1=false;
@@ -329,7 +329,7 @@ public class Map extends BasicGameState {
 					hity2=fire2Y;
 				}
 				
-				if(!(projCircle2.contains(play1X+10, play1Y+10) && CanBeHit1==false)){
+				if(!(projCircle2.contains(play1X+Player1Sprite.getWidth()/2, play1Y+Player1Sprite.getHeight()/2) && CanBeHit1==false)){
 					hitx2=2000;
 					hity2=2000;
 					CanBeHit1=true;
