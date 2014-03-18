@@ -6,7 +6,7 @@ import org.newdawn.slick.openal.Audio;
 import org.newdawn.slick.openal.AudioLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
-public class VelocityAI {
+public class VelocityAI extends gameRender {
 	int posX;
 	int posY;
 	int VelX;
