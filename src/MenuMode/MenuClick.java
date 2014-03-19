@@ -1,4 +1,4 @@
-package MenuMode;
+package menuMode;
 
 import gameMode.Map;
 

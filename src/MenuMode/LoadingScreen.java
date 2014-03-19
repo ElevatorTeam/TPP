@@ -1,5 +1,6 @@
-package MenuMode;
+package menuMode;
 
+import gameMode.Attacks;
 import gameMode.Chars;
 import gameMode.Map;
 
@@ -64,8 +65,11 @@ public class LoadingScreen extends BasicGameState{
 	
 	public void load(){
 		new Chars();
+		new Attacks();
 		Chars.createSpriteSheets();
 		Chars.createAnimations();
+		Attacks.createSpriteSheets();
+		Attacks.createAnimations();
 		try {
 			Map.gameInitMethod();
 			StartMenu.menuInit();

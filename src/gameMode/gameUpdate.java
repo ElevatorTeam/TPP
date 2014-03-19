@@ -2,6 +2,9 @@ package gameMode;
 
 import java.io.IOException;
 
+import menuMode.MenuRender;
+import menuMode.TPP;
+
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
@@ -11,8 +14,6 @@ import org.newdawn.slick.openal.AudioLoader;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.util.ResourceLoader;
 
-import MenuMode.MenuRender;
-import MenuMode.TPP;
 
 public class gameUpdate extends gameRender{
 
@@ -37,7 +38,7 @@ public class gameUpdate extends gameRender{
 			fire1X=play1X+Player1Sprite.getWidth()/3;
 			fire1Y=play1Y+Player2Sprite.getHeight()/8;
 			projCircle1= new Circle(fire1X, fire1Y, 40);
-			proj1 = new Velocity(fire1X, fire1Y, 20, -2);
+			proj1 = new Velocity(fire1X, fire1Y, 20*directionOfPlayer1Attack, -2);
 		}
 		
 		if(bool1==true && !(input.isKeyDown(Input.KEY_T))){
@@ -67,7 +68,7 @@ public class gameUpdate extends gameRender{
 				fire2X=play2X+Player2Sprite.getWidth()/3;
 				fire2Y=play2Y+Player2Sprite.getHeight()/8;
 				projCircle2= new Circle(fire2X, fire2Y, 40);
-				proj2 = new Velocity(fire2X, fire2Y, -20, -2);
+				proj2 = new Velocity(fire2X, fire2Y, 20*directionOfPlayer2Attack, -2);
 				shootCheck2=true;
 			}
 			
@@ -94,7 +95,7 @@ public class gameUpdate extends gameRender{
 				fire2X=play2X+Player2Sprite.getWidth()/3;
 				fire2Y=play2Y+Player2Sprite.getHeight()/8;
 				projCircle2= new Circle(fire2X, fire2Y, 40);
-				proj2 = new Velocity(fire2X, fire2Y, -20, -2);
+				proj2 = new Velocity(fire2X, fire2Y, 20*directionOfPlayer2Attack, -2);
 			}
 
 			if(bool2==true && !(input.isKeyDown(Input.KEY_NUMPAD0))){
@@ -244,6 +245,15 @@ public class gameUpdate extends gameRender{
 					Mouse.setGrabbed(false);
 					sbg.enterState(TPP.startMenu);
 				}
+				if(play1X<play2X)
+					directionOfPlayer1Attack=1;
+				else
+					directionOfPlayer1Attack=-1;
+				if(play2X<play1X)
+					directionOfPlayer2Attack=1;
+				else
+					directionOfPlayer2Attack=-1;
+				
 	}
 
 	private void setMusic() {
