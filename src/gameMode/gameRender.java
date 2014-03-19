@@ -1,6 +1,9 @@
 package gameMode;
 
 import java.io.IOException;
+
+import menuMode.TPP;
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -13,12 +16,11 @@ import org.newdawn.slick.openal.AudioLoader;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.util.ResourceLoader;
 
-import MenuMode.TPP;
 
 public class gameRender {
 	static Image land;
-	static Animation Player1Sprite;
-	static Animation Player2Sprite;
+	public Animation Player1Sprite;
+	public Animation Player2Sprite;
 	static Image fire1;
 	static Image fire2;
 	static Image hud;
@@ -78,9 +80,13 @@ public class gameRender {
 	static int tiey =2000;
 	public int mapControl;
 	public boolean IsThisAI = false;
+	public int directionOfPlayer1Attack=1;
+	public int directionOfPlayer2Attack=-1;
 	
 	public void initMethod() 
 			throws SlickException{
+		Player1Sprite=Chars.atvAnim;
+		Player2Sprite=Chars.atvAnim;
 		land = new Image("resources/images/ToxicWasteland.png");
 		fire1= new Image("resources/images/fure.png");
 		fire2= new Image("resources/images/fure.png");
@@ -109,12 +115,8 @@ public class gameRender {
 	public void mapInit() throws SlickException{
 		if(dogepossible==true) 
 		    Player1Sprite= Chars.birdAnim;
-		else
-			Player1Sprite= Chars.dragAnim;
 		if(cagepossible==true)
 			Player2Sprite= Chars.flareonAnim;
-		else
-			Player2Sprite= Chars.zapdAnim;
 		if(mapControl==0)
 			land = new Image("resources/images/ToxicWasteland.png");
 		if(mapControl==1)
@@ -136,7 +138,7 @@ public class gameRender {
 		if(CanBeHit2==true)
 			fire1.draw(fire1X, fire1Y, Color.blue);
 		if(CanBeHit1==true)
-			fire2.draw(fire2X, fire2Y, Color.yellow);
+			Attacks.strikeAnim.draw(fire2X, fire2Y, Color.yellow);
 		hit1.draw(hitx1,hity1);
 		hit2.draw(hitx2,hity2);
 		hud.draw(0,0,gc.getWidth(), gc.getHeight());
@@ -147,5 +149,6 @@ public class gameRender {
 		win2.draw(win2x,win2y);
 		wnner.draw(winx, winy);
 		Chars.restartAnimations();
+		Attacks.restartAnimations();
 	}
 }

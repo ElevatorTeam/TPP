@@ -2,6 +2,9 @@ package gameMode;
 import java.awt.Font;
 import java.io.IOException;
 import java.io.InputStream;
+
+import menuMode.*;
+
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;
@@ -17,7 +20,6 @@ import org.newdawn.slick.openal.AudioLoader;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.util.ResourceLoader;
-import MenuMode.*;
 
 public class Map extends BasicGameState {
 	private int state;

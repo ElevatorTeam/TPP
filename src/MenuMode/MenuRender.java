@@ -1,5 +1,6 @@
-package MenuMode;
+package menuMode;
 
+import gameMode.Attacks;
 import gameMode.Chars;
 
 import org.lwjgl.input.Mouse;
@@ -10,7 +11,7 @@ public class MenuRender extends MenuUpdate{
 	
 	static int posX = Mouse.getX();
     static int posY = Mouse.getY();
-	
+    
 	public void menuSelect(GameContainer gc, StateBasedGame sbg, Graphics g){
 		g.setFont(TPP.font);
 		g.setColor(Color.red);
@@ -21,7 +22,38 @@ public class MenuRender extends MenuUpdate{
 	      Chars.zapdAnim.draw(180,280,160,110);
 	      Chars.birdAnim.draw(300,230,125,125);
 	      Chars.flareonAnim.draw(420,280,60,100);
+	      Attacks.strikeAnim.draw(602-frameCount*2,50);
 	      Chars.restartAnimations();
+	      Attacks.restartAnimations();
+	      frameCount++;
+	      if(frameCount==300)
+	    	  frameCount=0;
+	}
+	
+	public void charSelect(GameContainer gc, StateBasedGame sbg, Graphics g) {
+		g.setFont(TPP.font);
+		g.setColor(Color.red);
+		g.drawString("Character Select", gc.getWidth()/5*2,0);
+		g.setFont(TPP.smallfont);
+		g.drawString("Lazrgatr",charSelectPos,50);
+		g.drawString("Katie",charSelectPos*2,50);
+		g.drawString("Zapdos",charSelectPos*3,50);
+		g.drawString("Flareon",charSelectPos*4,50);
+		g.drawString("Bird Jesus",charSelectPos*5,50);
+		g.drawString("ATV",charSelectPos*6,50);
+		g.setColor(Color.blue);
+		g.drawString("Player 1",charSelectPos*player1ChoiceX,80);
+		g.drawString("Player 2",charSelectPos*player2ChoiceX,100);
+		
+		Chars.lazrAnim.draw(charSelectPos,150,110,120);
+		Chars.dragAnim.draw(charSelectPos*2,150,110,120);
+		Chars.zapdAnim.draw(charSelectPos*3-50,150,160,110);
+		Chars.flareonAnim.draw(charSelectPos*4+20,150,60,100);
+		Chars.birdAnim.draw(charSelectPos*5-30,150,125,125);
+		Chars.atvAnim.draw(charSelectPos*6-30,150,125,100);
+		Chars.restartAnimations();
+		Attacks.restartAnimations();
+		frameCount++;
 	}
 	
 	public void levelSelect(GameContainer gc, StateBasedGame sbg, Graphics g){

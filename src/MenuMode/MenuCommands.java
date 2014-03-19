@@ -1,4 +1,4 @@
-package MenuMode;
+package menuMode;
 
 import java.awt.Font;
 import java.io.FileInputStream;
@@ -21,14 +21,13 @@ public class MenuCommands {
 	int state;
     Audio wowEffect;
     boolean wowtime;
-    Audio cageEffect;
-    boolean cagetime;
     boolean IsThereAI = true;
 	Image exitGame;
 	public static Audio theme;
 	boolean playTheme = true;
 	int Screen = 0;
 	boolean clickable=false;
+    static int charSelectPos;
     
     public void initMain() throws SlickException{
 		exitGame = new Image("resources/images/exitGame.png");
@@ -40,20 +39,18 @@ public class MenuCommands {
 	    }	
 	}
     
+    public void initSelect(){
+    	charSelectPos=TPP.appgc.getWidth()/8;
+    }
+    
     public void initLevel() throws SlickException{
-		menu = new Image("resources/images/menu.png");
-		wowtime=true;
-		
-		 try {
-		        wowEffect = AudioLoader.getAudio("OGG", new FileInputStream("resources/music/wow.ogg"));
-		     } catch (IOException e){
-		        e.printStackTrace();
-		    }
-		try {
-			cageEffect = AudioLoader.getAudio("OGG", new FileInputStream("resources/music/wow.ogg"));
-        } catch (IOException e) {
-        	e.printStackTrace();
-        }
-	}
-
+    	menu = new Image("resources/images/menu.png");
+    	wowtime=true;
+    	
+    	try {
+    		wowEffect = AudioLoader.getAudio("OGG", new FileInputStream("resources/music/wow.ogg"));
+    	} catch (IOException e){
+    		e.printStackTrace();
+    	}
+    }
 }

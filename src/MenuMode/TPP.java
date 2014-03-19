@@ -1,4 +1,4 @@
-package MenuMode;
+package menuMode;
 import java.awt.Font;
 import java.io.InputStream;
 import gameMode.*;
@@ -14,6 +14,7 @@ public class TPP extends StateBasedGame{
 	public static final int map = 2;
 
 	public static TrueTypeFont font;
+	public static TrueTypeFont smallfont;
 	
 	static AppGameContainer appgc;
 	
@@ -33,13 +34,13 @@ public class TPP extends StateBasedGame{
 	   }
 	
 	public static void setFont(){
-		//set font
 		try {
 			InputStream inputStream	= ResourceLoader.getResourceAsStream("game_over.ttf");
-	 
 			Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
 			awtFont = awtFont.deriveFont(84f); // set font size
 			font = new TrueTypeFont(awtFont, false);
+			awtFont = awtFont.deriveFont(60f); // set font size
+			smallfont = new TrueTypeFont(awtFont, false);
 	 
 		} catch (Exception e) {
 			e.printStackTrace();

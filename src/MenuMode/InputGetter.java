@@ -1,4 +1,4 @@
-package MenuMode;
+package menuMode;
 
 import org.lwjgl.input.Keyboard;
 

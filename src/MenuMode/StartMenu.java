@@ -1,5 +1,6 @@
-package MenuMode;
+package menuMode;
 
+import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
@@ -34,12 +35,16 @@ public class StartMenu extends BasicGameState{
 		if(setWidth){
 			width=gc.getWidth();
 			height=gc.getHeight();
+			MenuManager.initSelect();
 			MenuManager.initClick(sbg, width, height);
 			setWidth=false;
 		}
+		
 		if(MenuManager.getMenuType()==0)
 			MenuManager.menuSelect(gc,sbg,g);
 		else if(MenuManager.getMenuType()==1)
+			MenuManager.charSelect(gc,sbg,g);
+		else if(MenuManager.getMenuType()==2)
 			MenuManager.levelSelect(gc,sbg,g);
 	}
 	
@@ -49,13 +54,15 @@ public class StartMenu extends BasicGameState{
 		if(MenuManager.getMenuType()==0)
 			MenuManager.menuUpdate(gc, sbg, delta);
 		else if(MenuManager.getMenuType()==1)
+			MenuManager.characterSelectUpdate(gc, sbg, delta);
+		else if(MenuManager.getMenuType()==2)
 			MenuManager.levelUpdate(gc, sbg, delta);
 	}
 	
 	public void mouseClicked(int button, int x, int y, int clickCount){
 		if(MenuManager.getMenuType()==0)
 			MenuManager.MainClick(button, x, y);
-		else if(MenuManager.getMenuType()==1){
+		else if(MenuManager.getMenuType()==2){
 			try {
 				MenuManager.LevelClick(button, x, y);
 			} 
