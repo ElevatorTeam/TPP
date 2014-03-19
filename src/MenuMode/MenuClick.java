@@ -157,9 +157,6 @@ public class MenuClick extends MenuCommands {
 	    			 sbg.enterState(TPP.map);
 	    		 }
 	    	 }
-	     } 
-		
-	}
-	
-	
+	     } 	
+	}	
 }

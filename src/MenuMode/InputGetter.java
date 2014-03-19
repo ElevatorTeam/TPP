@@ -31,5 +31,4 @@ public class InputGetter {
 		lastChar=currChar;
 		return lastChar;
 	}
-
 }

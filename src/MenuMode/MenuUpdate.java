@@ -135,5 +135,4 @@ public class MenuUpdate extends MenuClick {
 				Screen = 0;
 			}
 	}
-	
 }
