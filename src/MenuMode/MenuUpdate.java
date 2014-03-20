@@ -7,6 +7,7 @@ import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.*;
 
 public class MenuUpdate extends MenuClick {
 	
@@ -27,6 +28,10 @@ public class MenuUpdate extends MenuClick {
 		
 			if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)){
 				Screen=0;
+			}
+			if(Keyboard.isKeyDown(Keyboard.KEY_Q)){
+				theme.stop();
+				sbg.enterState(TPP.story,new FadeOutTransition(),new FadeInTransition());
 			}
 	}
 	
