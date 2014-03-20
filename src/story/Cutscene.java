@@ -12,7 +12,7 @@ import gameMode.*;
 public class Cutscene extends BasicGameState{
 
 	private int state;
-	static ArrayList<String> Dialog = new ArrayList<String>();
+	public static ArrayList<String> Dialog = new ArrayList<String>();
 	int index=-1;
 	int frameCount=0;
 	String currentLine;
@@ -29,15 +29,19 @@ public class Cutscene extends BasicGameState{
 		tempLine="";
 	}
 	
-	public static void setDialog(){
-	}
-	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException{
 		g.setFont(TPP.font);
 		if(index<Dialog.size()-1)
 			g.drawString(currentLine,gc.getWidth()/3,gc.getHeight()/4*3+5);
-		else sbg.enterState(TPP.startMenu);
+		else{
+			index=-1;
+			nextLetter=0;
+			currentLine="";
+			tempLine="";
+			frameCount=0;
+			sbg.enterState(TPP.startMenu);
+		}
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta)

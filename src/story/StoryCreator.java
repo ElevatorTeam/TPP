@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class StoryCreator {
 	//I had an idea for what is below, but right now I don't need it (nor can I remember what it is for).
 	//ArrayList<ArrayList<String>> ArrayOfDialogs = new ArrayList<ArrayList<String>>();
+	static ArrayList<String> DialogScene0= new ArrayList<String>();
 	static ArrayList<String> DialogScene1= new ArrayList<String>();
 	static ArrayList<String> DialogScene2= new ArrayList<String>();
 
@@ -12,11 +13,16 @@ public class StoryCreator {
 		
 	}
 	
-	public static void setDialog(int arrayChoice){
-		if(arrayChoice==1)
-			setDialog1();
+	public static void setCutscene(int arrayChoice){
+		if(arrayChoice<=1 || arrayChoice>=3)
+			setDialog0();
 		if(arrayChoice==2)
 			setDialog2();
+	}
+	
+	public static void setDialog0(){
+		DialogScene0.add("Whoa! The game picked a cutscene that doesn't exist");
+		Cutscene.Dialog=DialogScene0;
 	}
 	
 	public static void setDialog1(){
@@ -31,6 +37,7 @@ public class StoryCreator {
 	}
 	
 	public static void setDialog2(){
-		DialogScene1.add("The Second Set Up Made It!");
+		DialogScene2.add("The Second Set Up Made It!");
+		Cutscene.Dialog=DialogScene2;
 	}
 }

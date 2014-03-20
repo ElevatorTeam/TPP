@@ -169,8 +169,8 @@ public class gameRender {
 		hit1.draw(hitx1,hity1);
 		hit2.draw(hitx2,hity2);
 		hud.draw(0,0,gc.getWidth(), gc.getHeight());
-		g.drawString("" + playerhit1, gc.getWidth()/2-(gc.getWidth()/9), (int) (gc.getHeight()-((gc.getHeight()/90)*11.5)));
-		g.drawString("" + playerhit2, gc.getWidth()/2+(gc.getWidth()/15), (int) (gc.getHeight()-((gc.getHeight()/90)*11.5)));
+		g.drawString("" + playerhit1, gc.getWidth()/2-(gc.getWidth()/9), (int) (gc.getHeight()-((gc.getHeight()/90)*11.5)-3 ));
+		g.drawString("" + playerhit2, gc.getWidth()/2+(gc.getWidth()/15), (int) (gc.getHeight()-((gc.getHeight()/90)*11.5)-3 ));
 		g.drawString("You both tied!", tiex, tiey);
 		win1.draw(win1x, win1y);
 		win2.draw(win2x,win2y);
