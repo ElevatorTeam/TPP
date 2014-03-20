@@ -6,12 +6,15 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 import org.newdawn.slick.util.ResourceLoader;
 
+import story.Cutscene;
+
 
 public class TPP extends StateBasedGame{
 	public static final String gamename = "Twitch Fights Pokemon";
 	public static final int loadingScreen = 0;
 	public static final int startMenu = 1;
 	public static final int map = 2;
+	public static final int story = 3;
 
 	public static TrueTypeFont font;
 	public static TrueTypeFont smallfont;
@@ -21,15 +24,17 @@ public class TPP extends StateBasedGame{
 	public TPP(String gamename)
 	{
 		super(gamename);
-		this.addState(new LoadingScreen(loadingScreen));
-		this.addState(new StartMenu(startMenu));
-		this.addState(new Map(map));
 	}
 	
 	public void initStatesList(GameContainer gc) throws SlickException{
-	      this.getState(loadingScreen).init(gc, this);
-	      this.getState(startMenu).init(gc, this);
-	      this.getState(map).init(gc, this);
+//	      this.getState(loadingScreen).init(gc, this);
+//	      this.getState(startMenu).init(gc, this);
+//	      this.getState(map).init(gc, this);
+//	      this.getState(story).init(gc, this);
+		this.addState(new LoadingScreen(loadingScreen));
+		this.addState(new StartMenu(startMenu));
+		this.addState(new Map(map));
+		this.addState(new Cutscene(story));
 	      this.enterState(loadingScreen);
 	   }
 	
