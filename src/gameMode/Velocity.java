@@ -36,12 +36,12 @@ public class Velocity {
 			posX=(gc.getWidth()/16*12);
 		}
 		//right wall
-		if(posX>gc.getWidth()-(gc.getWidth()/8)){
-			posX=(gc.getWidth()-(gc.getWidth()/8));
+		if(posX>gc.getWidth()-(Map.gameManager.Player1Sprite.getWidth())){
+			posX=(gc.getWidth()-(Map.gameManager.Player1Sprite.getWidth()));
 		}
 		//left wall
-		if(posX<-50){
-			posX=-50;
+		if(posX<-(Map.gameManager.Player1Sprite.getWidth()/3)){
+			posX=-(Map.gameManager.Player1Sprite.getWidth()/3);
 		}
 		//ground
 				if(posY>(gc.getHeight()-50)){
@@ -56,15 +56,15 @@ public class Velocity {
 		//jumping
 		if(input.isKeyDown(Input.KEY_SPACE)){
 			if(VelY<5 && VelY>-25){
-			VelY=20;
-			
-			try {
-		        jump = AudioLoader.getAudio("OGG", ResourceLoader.getResourceAsStream("resources/music/jump1.ogg"));
-		        } catch (IOException e) {
-		        e.printStackTrace();
-		    }
-			jump.playAsSoundEffect(1.0f, 1.0f, false);
-			
+				VelY=20;
+
+				try {
+					jump = AudioLoader.getAudio("OGG", ResourceLoader.getResourceAsStream("resources/music/jump1.ogg"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				jump.playAsSoundEffect(1.0f, 1.0f, false);
+
 			}
 		}
 		VelY--;

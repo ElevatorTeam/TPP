@@ -17,7 +17,6 @@ import org.newdawn.slick.util.ResourceLoader;
 
 public class gameUpdate extends gameRender{
 
-	
 	public void updateMethod(GameContainer gc, StateBasedGame sbg, int delta)
 			throws SlickException {
 		setMusic();
@@ -245,6 +244,7 @@ public class gameUpdate extends gameRender{
 					Mouse.setGrabbed(false);
 					sbg.enterState(TPP.startMenu);
 				}
+				
 				if(play1X<play2X)
 					directionOfPlayer1Attack=1;
 				else
@@ -253,7 +253,6 @@ public class gameUpdate extends gameRender{
 					directionOfPlayer2Attack=1;
 				else
 					directionOfPlayer2Attack=-1;
-				
 	}
 
 	private void setMusic() {

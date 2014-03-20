@@ -1,10 +1,9 @@
 package gameMode;
+
 import java.awt.Font;
 import java.io.IOException;
 import java.io.InputStream;
-
 import menuMode.*;
-
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;

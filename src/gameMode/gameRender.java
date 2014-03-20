@@ -21,6 +21,8 @@ public class gameRender {
 	static Image land;
 	public Animation Player1Sprite;
 	public Animation Player2Sprite;
+	public Animation Player1Flipped;
+	public Animation Player2Flipped;
 	static Image fire1;
 	static Image fire2;
 	static Image hud;
@@ -82,11 +84,14 @@ public class gameRender {
 	public boolean IsThisAI = false;
 	public int directionOfPlayer1Attack=1;
 	public int directionOfPlayer2Attack=-1;
+	public boolean player2IsGreyFromClone;
 	
 	public void initMethod() 
 			throws SlickException{
-		Player1Sprite=Chars.atvAnim;
-		Player2Sprite=Chars.atvAnim;
+		Player1Sprite=Chars.dragAnim;
+		Player2Sprite=Chars.dragAnim;
+		Player1Flipped=Chars.dragAnimFlipped;
+		Player2Flipped=Chars.dragAnimFlipped;
 		land = new Image("resources/images/ToxicWasteland.png");
 		fire1= new Image("resources/images/fure.png");
 		fire2= new Image("resources/images/fure.png");
@@ -133,8 +138,30 @@ public class gameRender {
 		g.setFont(TPP.font);
 		g.setColor(Color.cyan);
 		land.draw(0, 0, gc.getWidth(), gc.getHeight());
-		Player1Sprite.draw(play1X, play1Y);
-		Player2Sprite.draw(play2X, play2Y);
+		
+		//means player 2 is the same as player 1
+		if(player2IsGreyFromClone){
+			if(Chars.checkDirection(play1X, play2X)){
+				Player1Sprite.draw(play1X, play1Y);
+				Player2Flipped.draw(play2X, play2Y, Player2Flipped.getWidth(), Player2Flipped.getHeight(), Color.lightGray);
+			}
+			else{
+				Player1Flipped.draw(play1X, play1Y);
+				Player2Sprite.draw(play2X, play2Y, Player2Flipped.getWidth(), Player2Flipped.getHeight(), Color.lightGray);
+			}
+		}
+		
+		//means player 2 is not the same as player 1
+		else{
+			if(Chars.checkDirection(play1X, play2X)){
+				Player1Sprite.draw(play1X, play1Y);
+				Player2Flipped.draw(play2X, play2Y);
+			}
+			else{
+				Player1Flipped.draw(play1X, play1Y);
+				Player2Sprite.draw(play2X, play2Y);
+			}
+		}
 		if(CanBeHit2==true)
 			fire1.draw(fire1X, fire1Y, Color.blue);
 		if(CanBeHit1==true)

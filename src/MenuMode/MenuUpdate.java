@@ -31,6 +31,7 @@ public class MenuUpdate extends MenuClick {
 	}
 	
 	public void characterSelectUpdate(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
+		
 		if(Keyboard.isKeyDown(Keyboard.KEY_D) && frameCount%10==0){
 			if(player1ChoiceX<6)
 				player1ChoiceX++;
@@ -64,52 +65,68 @@ public class MenuUpdate extends MenuClick {
 		}
 		else
 			movingArrow1=true;
-		
-		
-		
-		if(Keyboard.isKeyDown(Keyboard.KEY_T)){
-			if(player1ChoiceX==1)
-				Map.gameManager.Player1Sprite=Chars.lazrAnim;
-			else if(player1ChoiceX==2)
-				Map.gameManager.Player1Sprite=Chars.dragAnim;
-			else if(player1ChoiceX==3)
-				Map.gameManager.Player1Sprite=Chars.zapdAnim;
-			else if(player1ChoiceX==4)
-				Map.gameManager.Player1Sprite=Chars.flareonAnim;
-			else if(player1ChoiceX==5)
-				Map.gameManager.Player1Sprite=Chars.birdAnim;
-			else if(player1ChoiceX==6)
-				Map.gameManager.Player1Sprite=Chars.atvAnim;
-		}
-		
-		if(Keyboard.isKeyDown(Keyboard.KEY_NUMPAD0)){
-			if(player2ChoiceX==1)
-				Map.gameManager.Player2Sprite=Chars.lazrAnim;
-			else if(player2ChoiceX==2)
-				Map.gameManager.Player2Sprite=Chars.dragAnim;
-			else if(player2ChoiceX==3)
-				Map.gameManager.Player2Sprite=Chars.zapdAnim;
-			else if(player2ChoiceX==4)
-				Map.gameManager.Player2Sprite=Chars.flareonAnim;
-			else if(player2ChoiceX==5)
-				Map.gameManager.Player2Sprite=Chars.birdAnim;
-			else if(player2ChoiceX==6)
-				Map.gameManager.Player2Sprite=Chars.atvAnim;
-		}
-		
-		
+
 		if(Keyboard.isKeyDown(Keyboard.KEY_SPACE)){
-			if(Map.gameManager.Player1Sprite==null)
+			if(player1ChoiceX==1){
 				Map.gameManager.Player1Sprite=Chars.lazrAnim;
-			if(Map.gameManager.Player2Sprite==null)
+				Map.gameManager.Player1Flipped=Chars.lazrAnimFlipped;
+			}
+			else if(player1ChoiceX==2){
+				Map.gameManager.Player1Sprite=Chars.dragAnim;
+				Map.gameManager.Player1Flipped=Chars.dragAnimFlipped;
+			}
+			else if(player1ChoiceX==3){
 				Map.gameManager.Player1Sprite=Chars.zapdAnim;
+				Map.gameManager.Player1Flipped=Chars.zapdAnimFlipped;
+			}
+			else if(player1ChoiceX==4){
+				Map.gameManager.Player1Sprite=Chars.flareonAnim;
+				Map.gameManager.Player1Flipped=Chars.flareonAnimFlipped;
+			}
+			else if(player1ChoiceX==5){
+				Map.gameManager.Player1Sprite=Chars.birdAnim;
+				Map.gameManager.Player1Flipped=Chars.birdAnimFlipped;
+			}
+			else if(player1ChoiceX==6){
+				Map.gameManager.Player1Sprite=Chars.atvAnim;
+				Map.gameManager.Player1Flipped=Chars.atvAnimFlipped;
+			}
+			
+			//player2 Player picked.
+			if(player2ChoiceX==1){
+				Map.gameManager.Player2Sprite=Chars.lazrAnim;
+				Map.gameManager.Player2Flipped=Chars.lazrAnimFlipped;
+			}
+			else if(player2ChoiceX==2){
+				Map.gameManager.Player2Sprite=Chars.dragAnim;
+				Map.gameManager.Player2Flipped=Chars.dragAnimFlipped;
+			}
+			else if(player2ChoiceX==3){
+				Map.gameManager.Player2Sprite=Chars.zapdAnim;
+				Map.gameManager.Player2Flipped=Chars.zapdAnimFlipped;
+			}
+			else if(player2ChoiceX==4){
+				Map.gameManager.Player2Sprite=Chars.flareonAnim;
+				Map.gameManager.Player2Flipped=Chars.flareonAnimFlipped;
+			}
+			else if(player2ChoiceX==5){
+				Map.gameManager.Player2Sprite=Chars.birdAnim;
+				Map.gameManager.Player2Flipped=Chars.birdAnimFlipped;
+			}
+			else if(player2ChoiceX==6){
+				Map.gameManager.Player2Sprite=Chars.atvAnim;
+				Map.gameManager.Player2Flipped=Chars.atvAnimFlipped;
+			}
+			if(player1ChoiceX==player2ChoiceX && player1ChoiceY==player2ChoiceY){
+				Map.gameManager.player2IsGreyFromClone=true;
+			}
 			Screen = 2;
 		}
-		
+
 		if(Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)){
 			Screen = 0;
 		}
-		
+
 	}
 	
 	public void levelUpdate(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
