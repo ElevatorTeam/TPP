@@ -7,6 +7,8 @@ import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
+import story.StoryChars;
+
 public class MenuRender extends MenuUpdate{
 	
 	static int posX = Mouse.getX();
@@ -24,6 +26,7 @@ public class MenuRender extends MenuUpdate{
 	      Chars.flareonAnim.draw(420,280,60,100);
 	      Attacks.strikeAnim.draw(602-frameCount*2,50);
 	      Chars.restartAnimations();
+	      StoryChars.restartAnimations();
 	      Attacks.restartAnimations();
 	      frameCount++;
 	      if(frameCount==300)

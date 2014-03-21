@@ -1,8 +1,11 @@
 package story;
 
 import java.util.ArrayList;
+
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -18,6 +21,10 @@ public class Cutscene extends BasicGameState{
 	String currentLine;
 	String tempLine;
 	int nextLetter;
+	Image wood;
+	Image mount;
+	Image sky;
+	Image grass;
 	
 	public Cutscene(int state){
 		 this.state = state;
@@ -27,13 +34,22 @@ public class Cutscene extends BasicGameState{
 			throws SlickException {
 		currentLine="";
 		tempLine="";
+		wood = new Image("resources/story/Trees.png");
+		mount = new Image("resources/story/Mountains.png");
+		sky  = new Image("resources/story/sky.png");
+		grass  = new Image("resources/story/Grass.png");
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException{
+		sky.draw(0,0, gc.getWidth(), gc.getHeight());
+		mount.draw(0,0, gc.getWidth(), gc.getHeight());
+		wood.draw(0,5, gc.getWidth(), gc.getHeight(), Color.white);
+		StoryChars.totoAnim.drawFlash(500,460, StoryChars.totoAnim.getWidth(), StoryChars.totoAnim.getHeight(), Color.black);
+		grass.draw(0,0, gc.getWidth(), gc.getHeight(), Color.gray);
 		g.setFont(TPP.font);
-		if(index<Dialog.size()-1)
-			g.drawString(currentLine,gc.getWidth()/3,gc.getHeight()/4*3+5);
+		if(index<Dialog.size())
+			g.drawString(currentLine,gc.getWidth()/24*7,gc.getHeight()/4*3+5);
 		else{
 			index=-1;
 			nextLetter=0;
@@ -50,7 +66,8 @@ public class Cutscene extends BasicGameState{
 			index++;
 			currentLine="";
 			nextLetter=0;
-			tempLine=Dialog.get(index);
+			if(index<Dialog.size())
+				tempLine=Dialog.get(index);
 		}
 		if(frameCount%3==0){
 			if(currentLine.length()<tempLine.length())

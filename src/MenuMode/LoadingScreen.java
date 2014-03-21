@@ -10,7 +10,8 @@ import org.newdawn.slick.state.*;
 import org.newdawn.slick.util.ResourceLoader;
 import org.lwjgl.input.Mouse;
 
-import story.StoryCreator;
+import story.StoryData;
+import story.StoryChars;
 
 
 import java.io.InputStream;
@@ -50,7 +51,7 @@ public class LoadingScreen extends BasicGameState{
 			else if(dots.equals("."))
 				dots="..";
 			else if(dots.equals(".."))
-				dots="...";
+				dots="..."; 
 			else if(dots.equals("..."))
 				dots=".";
 		}
@@ -68,12 +69,15 @@ public class LoadingScreen extends BasicGameState{
 	public void load(){
 		new Chars();
 		new Attacks();
-		new StoryCreator();
+		new StoryData();
+		new StoryChars();
 		Chars.createSpriteSheets();
 		Chars.createAnimations();
+		StoryChars.createSpriteSheets();
+		StoryChars.createAnimations();
 		Attacks.createSpriteSheets();
 		Attacks.createAnimations();
-		StoryCreator.setDialog1();
+		StoryData.setDialog1();
 		try {
 			Map.gameInitMethod();
 			StartMenu.menuInit();
